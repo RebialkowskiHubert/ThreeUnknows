@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <children>
+      <TabPane layoutX="14.0" layoutY="8.0" prefHeight="600.0" prefWidth="1030.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Dane">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.4143968871595331" layoutX="-7.0" prefHeight="567.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="565.0" prefWidth="0.0">
+                                 <children>
+                                    <GridPane layoutX="14.0" layoutY="90.0" prefHeight="459.0" prefWidth="364.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="90.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Wielkość populacji:" GridPane.rowIndex="2" />
+                                          <Label text="Współczynnik mutacji:" GridPane.rowIndex="3" />
+                                          <Label text="Współczynnik krzyżowania:" GridPane.rowIndex="4" />
+                                          <Label text="Liczba pokoleń:" GridPane.rowIndex="5" />
+                                          <Button mnemonicParsing="false" onAction="#btnOblicz" text="Oblicz" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <GridPane.margin>
+                                                <Insets left="70.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <TextField fx:id="twielkpop" promptText="Liczba całkowita nieujemna" text="500" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <tooltip>
+                                                <Tooltip text="Liczba całkowita nieujemna" />
+                                             </tooltip></TextField>
+                                          <TextField fx:id="tmut" text="0.2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <tooltip>
+                                                <Tooltip text="Zalecane od 0 do 0.5" />
+                                             </tooltip></TextField>
+                                          <TextField fx:id="tkrzyz" text="0.7" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <tooltip>
+                                                <Tooltip text="Zalecane od 0.5 do 1" />
+                                             </tooltip></TextField>
+                                          <TextField fx:id="tpok" text="100" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <tooltip>
+                                                <Tooltip text="Liczba całkowita nieujemna" />
+                                             </tooltip></TextField>
+                                          <Label text="Początek:" />
+                                          <Label text="Koniec:" GridPane.rowIndex="1" />
+                                          <TextField text="-1.0" GridPane.columnIndex="1" fx:id="xod" />
+                                          <TextField text="1.0" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="xdo" />
+                                       </children>
+                                    </GridPane>
+                                    <ChoiceBox fx:id="cb" layoutX="14.0" layoutY="45.0" prefHeight="25.0" prefWidth="401.0" />
+                                    <Label layoutX="14.0" layoutY="14.0" text="Funkcja:" />
+                                    <Label layoutX="14.0" layoutY="83.0" text="Zakres argumentów, w którym ma być liczona funkcja" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TextArea fx:id="ta" editable="false" layoutY="37.0" prefHeight="346.0" prefWidth="622.0" wrapText="true" AnchorPane.bottomAnchor="182.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="37.0" />
+                                    <Label layoutX="5.0" layoutY="14.0" text="Dane statystyczne:" />
+                                    <GridPane layoutX="14.0" layoutY="386.0" prefHeight="179.0" prefWidth="639.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="386.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Wartość niewiadomej x:" />
+                                          <Label text="Wartość niewiadomej y:" GridPane.rowIndex="1" />
+                                          <Label text="Minimum funkcji:" GridPane.rowIndex="2" />
+                                          <TextField fx:id="w1" editable="false" GridPane.columnIndex="1" />
+                                          <TextField fx:id="w2" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="wmin" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Wykres">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="298.0" layoutY="49.0" prefHeight="567.0" prefWidth="1030.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <LineChart fx:id="lc" layoutX="14.0" layoutY="62.0" prefHeight="565.0" prefWidth="510.0" title="Wykres funkcji w zależności od argumentu x" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                                      <xAxis>
+                                        <NumberAxis label="X" side="BOTTOM" fx:id="xAxis" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis fx:id="minAxis" label="Wartość" side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <LineChart fx:id="lc2" layoutX="5.0" prefHeight="565.0" prefWidth="510.0" title="Wykres funkcji w zależności od argumentu y" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                                      <xAxis>
+                                        <NumberAxis fx:id="yAxis" label="Y" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis fx:id="min2Axis" label="Wartość" side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
